@@ -1,0 +1,41 @@
+%%[
+
+    /*
+    
+Day 3 Challenge
+
+An online artisanal store wants to send a personalized promotion email to its customers based on their location. 
+The offer should include free shipping to customers who live in the same city as the warehouse, and a discount code to customers who live in other cities.
+
+🧑🏼‍💻 A sample dataset is available for you to start working on. Click here to access it and get started!
+https://ampscript30.com/ampscript-challenge-day3/
+
+💡 Today’s Hint
+You can use IF, ELSE to personalize the content of an email based on subscriber data.
+*/
+
+
+var @location
+
+set @location = AttributeValue("City")
+
+if @location == "Halifax" then
+  set @offer = "Free shipping on all local orders in Halifax!"
+else
+    set @offer = "Use code HALIFAX20 for 20% off your next order!"
+endif
+
+]%%
+
+
+Dear valued customer,
+
+We are excited to offer you a special deal on our products. Today only, you can receive the following offer: %%=v(@offer)=%%
+
+Best regards,
+The Company
+
+Crafted with 💜 by AMPscript30.
+AMPScripted Smiles Ltd.
+456 Data Extension Drive Suite 321, Loop City, 
+Variable Valley, DE 12345

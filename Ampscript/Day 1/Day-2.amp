@@ -1,0 +1,49 @@
+%%[
+
+    /*
+    
+    Day 2 Challenge
+
+    A health club wants to send a renewal reminder email to its members who are due for renewal in 30 days. 
+    The email should include the member's full name and the date (as yyyy-mm-dd) when their membership will expire.
+
+    Looking for a sample data set to practice with? Check it out here!
+    https://ampscript30.com/ampscript-challenge-day2/
+
+    💡 Today’s Hint
+    You can use the Format function to present data in a clear and consistent way in your emails. 
+    Experiment with different formats to find the one that works best for your needs.
+    
+    */
+
+    var @firstName, @expirationDate, @cuerrentDate
+
+    set @firstName = [Firstname]
+    set @expirationDate = "2025-06-10"
+    set @currentDate = Format(Now(), "yyyy-MM-dd", "Date")
+    set @daysUntilExpiration = DateDiff(@currentDate, @expirationDate, "D")
+
+if empty(@firstName) then
+  set @displayName = "Customer"
+else
+  set @displayName = ProperCase(@displayName)
+endif
+
+if NOT EMPTY (@expirationDate) then
+  set @formattedDate = Format(@expirationDate, "MMMM dd, yyyy", "Date")
+else
+  set @formattedDate = "No Date Available"
+endif
+
+if @daysUntilExpiration == 30 then
+  set @message = "Your membership is due for renewal in 30 days."
+else
+  set @message = "Your membership is not due for renewal."
+endif
+
+]%%
+
+
+Formatted Date: %%=v(@formattedDate)=%% <br/>
+Days Left to Expiration: %%=v(@daysUntilExpiration)=%% <br/>
+Hello %%=v(@displayName)=%%
