@@ -14,7 +14,7 @@ This repository contains my solutions to the 30 day challenges based on the webs
 - **30 SQL Challenges**  
   Practice writing SQL queries for common Marketing Cloud tasks like segmentation, deduplication, data joins, lead scoring, and more.
 
-- **Structure**  
+**Structure**  
 Each challenge includes:
 - A **daily objective**
 - A **problem statement**
