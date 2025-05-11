@@ -1,0 +1,51 @@
+%%[
+
+/*
+    
+Day 4 Challenge
+
+An outdoor equipment company has launched a “Refer-a-Friend” program in their stores and wants to send an email to its customers that includes a personalised message based on whether the customer has provided a valid referral email address.
+
+The email should include the message "We confirm that we have received your referral email address" if the customer has provided a valid email address and "Please provide us with a valid referral email address" if the customer has not provided a valid email address.
+
+Excited to take on today's challenge? Take a look at the sample dataset and email preview.
+
+
+💡 Today’s Hint
+You can use the IsEmailAddress to validate whether a given string is a valid email address. The function returns a boolean value of true if the string is a valid email address, and false if it is not.
+
+Dataset: https://ampscript30.com/ampscript-challenge-day4/
+*/
+
+
+var @email, @firstname, @lastName, @referralEmail, @isValidEmail
+
+SET @email = AttributeValue("Email")
+SET @firstname = AttributeValue("FirstName")
+SET @lastName = AttributeValue("LastName")
+SET @referralEmail = AttributeValue("ReferralEmail")
+SET @isValidEmail = IsEmailAddress(@referralEmail)
+
+
+If @isValidEmail == 'true' then
+  set @message = "We confirm that we have received your referral email address."
+else
+  set @message = "Please provide us with a valid referral email address."
+endif
+
+]%%
+
+
+Hello,
+
+Thank you for referring a friend to our perks program!
+
+%%==v(@message)=%%
+
+Best regards,
+Wanderer Outdoor Equipment
+
+Crafted with 💜 by AMPscript30.
+AMPScripted Smiles Ltd.
+456 Data Extension Drive Suite 321, Loop City, 
+Variable Valley, DE 12345

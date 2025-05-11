@@ -18,7 +18,7 @@
 
     var @firstName, @expirationDate, @cuerrentDate
 
-    set @firstName = [Firstname]
+    set @firstName = AttributeValue("FirstName")
     set @expirationDate = "2025-06-10"
     set @currentDate = Format(Now(), "yyyy-MM-dd", "Date")
     set @daysUntilExpiration = DateDiff(@currentDate, @expirationDate, "D")

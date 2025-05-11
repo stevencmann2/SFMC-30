@@ -14,7 +14,7 @@ You can use the ProperCase function to capitalise the first letter of each word 
 
 var @firstName, 
 
-set @firstName = [Firstname]
+set @firstName = AttributeValue("FirstName")
 
 if empty(@firstName) then
   set @displayName = "Customer"
