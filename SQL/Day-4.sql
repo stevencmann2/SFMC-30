@@ -10,7 +10,7 @@ Link: https://marketingcloud30.com/c/sql30ntqm0/
 SELECT 
     id, 
     points * 1.5 as bonus_points
-FROM [NextMobile Loyalty] as u
+FROM [NextMobile Loyalty]
 WHERE 
     points >= 150000
 
