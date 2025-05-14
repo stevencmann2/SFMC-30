@@ -1,0 +1,45 @@
+%%[
+
+/*
+    
+Day 6 Challenge
+
+A fitness company wants to send a personalized email to each customer with their Body Mass Index (BMI) calculated based on their weight and height. The calculated BMI will be included in the email with one decimal place. BMI is calculated using the following formula: weight in kg / (height in m)2
+
+If you’re unsure where to start, a sample data set is available here and can serve as a helpful starting point for the challenge.
+
+
+Dataset: https://ampscript30.com/ampscript-challenge-day6/
+*/
+
+VAR @height, @weight, @heightSquared, @BMI, @formattedBMI
+
+SET @weight = AttributeValue("Weight")
+SET @height = AttributeValue("Height")
+
+SET @heightSquared = Multiply(@height, @height)
+SET @BMI = Divide(@weight, @heightSquared)
+/* If wanting to format the BMI to one decimal place */
+SET @formattedBMI = Format(@BMI, "D1")
+/* If wanting to Format the BMI to one decimal place */
+SET @formattedBMI = Format(@BMI, "N")
+
+
+]%%
+
+
+
+
+Hello,<br/><br/>
+
+Based on your weight and height, your Body Mass Index (BMI) is %%==v(@formattedBMI)=%%.<br/><br/>
+
+Thank you for choosing our fitness company to help you reach your fitness goals!<br/><br/>
+
+Sincerely,<br/>
+The Fitness Company Team <br/><br/>
+
+Crafted with 💜 by AMPscript30.<br/>
+AMPScripted Smiles Ltd.<br/>
+456 Data Extension Drive Suite 321, Loop City,<br/>
+Variable Valley, DE 12345

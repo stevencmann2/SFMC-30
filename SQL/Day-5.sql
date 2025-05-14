@@ -1,4 +1,4 @@
-/* Day 4 – Use Multiple Criteria
+/* Day 5 – Use Multiple Criteria
 NextMobile is preparing an upsell offer for existing customers. 
 They would like to target customers who have the "Essential 120" mobility package or the "Fibe 500" internet package. 
 Your task is to generate a list of these users.

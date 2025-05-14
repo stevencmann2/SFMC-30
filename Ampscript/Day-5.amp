@@ -1,0 +1,65 @@
+%%[
+
+/*
+    
+Day 5 Challenge
+
+A florist wants to include a discount promotion in its weekly newsletter. 
+The discount offer will vary depending on the customer's upcoming birthday. 
+If the customer's birthday is within the next 7 days, they will receive a 15% discount. 
+If the customer's birthday is within the next 14 days, they will receive a 10% discount. 
+If the customer's birthday is not within the next 14 days, they will receive a 5% discount.
+
+For each challenge, a dataset and an email preview are available to help you get started. You can download them here.
+
+
+💡 Today’s Hint
+You can use the DateDiff function to calculate the difference between two dates in a specific time unit, such as days or hours.
+
+Dataset: https://ampscript30.com/ampscript-challenge-day5/
+*
+
+var @birthday, @discount, @currentDate, @diffYears, @nextBirthday
+
+/* SET @birthday = AttributeValue("Birthdate") */
+SET @birthday = "1990-05-12"
+SET @currentDate = SystemDateToLocalDate(Now())
+SET @diffYears = dateDiff(@birthday, @currentDate, "Y")
+SET @nextBirthday = DateAdd(@birthday, @diffYears, "Y")
+
+SET @now = Now()
+
+IF @nextBirthday < FormatDate(@now,"s") THEN
+     SET @nextBirthday = DateAdd(@nextBirthday, "1", "Y")
+ENDIF
+
+IF DateDiff(@currentDate, @nextBirthday, "D") <= 7 THEN
+    SET @discount = '15% discount'
+ELSEIF DateDiff(@currentDate, @nextBirthday, "D") <= 14 THEN
+     SET @discount = '10% discount'
+ELSE
+    SET @discount = '5% discount'
+ENDIF
+
+
+]%%
+
+Customer Birthday: %%=v(@birthday)=%%<br/>
+Next Birthday: %%=v(@nextBirthday)=%%<br/>
+Current Date: %%=v(@currentDate)=%%<br/>
+
+
+Hello,<br/>
+To celebrate your birthday, we are offering you a special discount!<br/>
+<br/><br/>
+You will receive a %%=v(@discount)=%% on your next purchase.<br/>
+<br/><br/>
+Happy birthday! 🎉<br/>
+<br/><br/>
+Best regards,<br/>
+Props Flora<br/>
+<br/><br/>
+Crafted with 💜 by AMPscript30.<br/>
+AMPScripted Smiles Ltd.<br/>
+456 Data Extension Drive Suite 321, Loop City, <br/>
+Variable Valley, DE 12345
