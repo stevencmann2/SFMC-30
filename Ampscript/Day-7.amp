@@ -1,0 +1,65 @@
+%%[
+
+/*
+    
+Day 7 Challenge
+
+A telecommunication company provides a yearly subscription plan to its customers. 
+Customers can choose to pay for the subscription annually or monthly. 
+The company wants to include the renewal date of the subscription in the payment confirmation email, so customers can keep track of when they need to renew their subscription.
+
+A sample data set is available here to help you get started with the challenge.
+
+
+Dataset: https://ampscript30.com/ampscript-challenge-day7/
+*/
+
+
+
+VAR @paymentFrequency, @paymentAmount, @today, @renewalDate, @formattedRenewalDate
+
+SET @paymentFrequency = AttributeValue("PaymentFrequency")
+SET @paymentAmount = AttributeValue("PaymentAmount")
+SET @today = Now()
+
+IF @paymentFrequency = "Annual" THEN
+  SET @renewalDate = DateAdd(@today, 1, "Y")
+ ELSE 
+  SET @renewalDate = DateAdd(@today, 1, "M")
+ENDIF
+
+SET @formattedRenewalDate = FormatDate(@renewalDate, "MMMM d, yyyy")
+]%%
+
+Hello,<br/><br/>
+
+Thank you for your payment of %%=v(@paymentAmount)=%% for your %%=v(@paymentFrequency)=%% subscription plan. Your subscription will expire on %%=v(@formattedRenewalDateApril=%%.<br/><br/>
+
+If you have any questions about your subscription, please contact our customer support team.<br/><br/>
+
+Sincerely,<br/>
+Next Telecom <br/><br/>
+
+Crafted with 💜 by AMPscript30.<br/>
+AMPScripted Smiles Ltd.<br/>
+456 Data Extension Drive Suite 321, Loop City, <br/>
+Variable Valley, DE 12345<br/>
+
+]%%
+
+
+
+
+Hello,<br/><br/>
+
+Based on your weight and height, your Body Mass Index (BMI) is %%==v(@formattedBMI)=%%.<br/><br/>
+
+Thank you for choosing our fitness company to help you reach your fitness goals!<br/><br/>
+
+Sincerely,<br/>
+The Fitness Company Team <br/><br/>
+
+Crafted with 💜 by AMPscript30.<br/>
+AMPScripted Smiles Ltd.<br/>
+456 Data Extension Drive Suite 321, Loop City,<br/>
+Variable Valley, DE 12345
